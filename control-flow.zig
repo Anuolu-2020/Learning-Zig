@@ -79,12 +79,29 @@ fn indexOf(haystack: []const u32, needle: u32) ?usize {
     return null;
 }
 
-// Label loop
-outer: for (1..10) |i| {
-	for (i..10) |j| {
-		if (i * j > (i+i + j+j)) continue :outer;
-		std.debug.print("{d} + {d} >= {d} * {d}\n", .{i+i, j+j, i, j});
-	}
-}
+pub fn main() void {
+    // While loops
+    const src: []u8 = "Hello";
+    var escape_count: usize = 0;
+    {
+        var i: usize = 0;
+        while (i < src.len) {
+            // backslash is used as an escape character, thus we need to escape it...
+            // with a backslash.
+            if (src[i] == '\\') {
+                i += 2;
+                escape_count += 1;
+            } else {
+                i += 1;
+            }
+        }
+    }
 
-pub fn main() void {}
+    // Label loop
+    outer: for (1..10) |i| {
+        for (i..10) |j| {
+            if (i * j > (i + i + j + j)) continue :outer;
+            std.debug.print("{d} + {d} >= {d} * {d}\n", .{ i + i, j + j, i, j });
+        }
+    }
+}
