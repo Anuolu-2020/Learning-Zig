@@ -78,3 +78,13 @@ fn indexOf(haystack: []const u32, needle: u32) ?usize {
     }
     return null;
 }
+
+// Label loop
+outer: for (1..10) |i| {
+	for (i..10) |j| {
+		if (i * j > (i+i + j+j)) continue :outer;
+		std.debug.print("{d} + {d} >= {d} * {d}\n", .{i+i, j+j, i, j});
+	}
+}
+
+pub fn main() void {}
