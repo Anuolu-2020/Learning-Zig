@@ -81,7 +81,7 @@ fn indexOf(haystack: []const u32, needle: u32) ?usize {
 
 pub fn main() void {
     // While loops
-    const src: []u8 = "Hello";
+    const src = "Hello";
     var escape_count: usize = 0;
     {
         var i: usize = 0;
